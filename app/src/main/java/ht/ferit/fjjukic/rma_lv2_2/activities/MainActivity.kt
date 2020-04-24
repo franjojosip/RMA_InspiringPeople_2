@@ -92,6 +92,7 @@ class MainActivity : AppCompatActivity() {
                 supportFragmentManager.beginTransaction()
                     .replace(R.id.frameLayout, inspiringPeopleFragment)
                     .commit()
+                inspiringPersonAdapter.notifyDataSetChanged() 
             }
 
             override fun addNewItem() {

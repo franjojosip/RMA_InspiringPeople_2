@@ -75,11 +75,8 @@ object PeopleRepository {
     fun getListOfInspiringPeople(): MutableList<InspiringPerson> = inspiringPeople
     fun count(): Int = inspiringPeople.count()
     fun removeInspiringPerson(id: Int) {
-        val newList: List<InspiringPerson> = inspiringPeople.filter {
-            it.id != id
-        }
-        inspiringPeople.clear()
-        inspiringPeople.addAll(newList)
+        val index: Int = inspiringPeople.indexOfFirst { it.id == id }
+        inspiringPeople.removeAt(index)
     }
 
     fun findInspiringPerson(id: Int): InspiringPerson? {
