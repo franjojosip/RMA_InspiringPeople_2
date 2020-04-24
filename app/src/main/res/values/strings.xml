@@ -18,4 +18,5 @@
     <string name="no">No</string>
     <string name="yes">Yes</string>
     <string name="erase">Erase</string>
+    <string name="edit_inspiring_person_title">Edit inspiring person</string>
 </resources>

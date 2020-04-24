@@ -1,15 +1,16 @@
 package ht.ferit.fjjukic.rma_lv2_2.repository
 
-import ht.ferit.fjjukic.rma_lv2_2.InspiringPerson
+import ht.ferit.fjjukic.rma_lv2_2.models.InspiringPerson
 import java.time.LocalDate
 
 object PeopleRepository {
 
-    private val inspiringPeople: MutableList<InspiringPerson>
+    private var inspiringPeople: MutableList<InspiringPerson>
+
     init {
-        inspiringPeople =
-            getInspiringPeople()
+        inspiringPeople = getInspiringPeople()
     }
+
     private fun getInspiringPeople(): MutableList<InspiringPerson> {
         return mutableListOf(
             InspiringPerson(
@@ -70,17 +71,32 @@ object PeopleRepository {
             )
         )
     }
+
     fun getListOfInspiringPeople(): MutableList<InspiringPerson> = inspiringPeople
-    fun count(): Int =  inspiringPeople.count()
+    fun count(): Int = inspiringPeople.count()
     fun removeInspiringPerson(id: Int) {
-        var newList = inspiringPeople.filter{
-            it-> it.id != id
+        val newList: List<InspiringPerson> = inspiringPeople.filter {
+            it.id != id
         }
         inspiringPeople.clear()
         inspiringPeople.addAll(newList)
     }
-    fun addInspiringPerson(inspiringPerson: InspiringPerson) =  inspiringPeople.add(inspiringPerson)
-    fun getQuote(id: Int): String{
+
+    fun findInspiringPerson(id: Int): InspiringPerson? {
+        return inspiringPeople.find { it.id == id }
+    }
+
+    fun addInspiringPerson(inspiringPerson: InspiringPerson, id: Int) {
+        when {
+            id != -1 -> {
+                val index: Int = inspiringPeople.indexOfFirst { it.id == id }
+                inspiringPeople[index] = inspiringPerson
+            }
+            else -> inspiringPeople.add(inspiringPerson)
+        }
+    }
+
+    fun getQuote(id: Int): String {
         val randomNumber: Int = (0..1).random()
         val person: InspiringPerson? = inspiringPeople.find { person -> person.id == id }
         return person?.quotes?.get(randomNumber).toString()

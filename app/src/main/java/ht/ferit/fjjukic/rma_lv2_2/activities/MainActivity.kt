@@ -1,10 +1,15 @@
-package ht.ferit.fjjukic.rma_lv2_2
+package ht.ferit.fjjukic.rma_lv2_2.activities
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.floatingactionbutton.FloatingActionButton
+import ht.ferit.fjjukic.rma_lv2_2.adapters.InspiringPersonAdapter
+import ht.ferit.fjjukic.rma_lv2_2.R
+import ht.ferit.fjjukic.rma_lv2_2.fragments.EditInspiringPersonFragment
+import ht.ferit.fjjukic.rma_lv2_2.fragments.InspiringPeopleFragment
+import ht.ferit.fjjukic.rma_lv2_2.interfaces.FragmentListener
+import ht.ferit.fjjukic.rma_lv2_2.interfaces.InspiringPeopleListener
 import ht.ferit.fjjukic.rma_lv2_2.repository.PeopleRepository
 
 
@@ -23,13 +28,17 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setFragmentManager() {
-        inspiringPersonAdapter = InspiringPersonAdapter(
-            this@MainActivity,
-            createInspiringPeopleListener()
-        )
-        inspiringPeopleFragment = InspiringPeopleFragment(inspiringPersonAdapter, createFragmentListener())
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.add(R.id.frameLayout, inspiringPeopleFragment)
+        this.inspiringPersonAdapter =
+            InspiringPersonAdapter(
+                this@MainActivity,
+                createInspiringPeopleListener()
+            )
+        this.inspiringPeopleFragment =
+            InspiringPeopleFragment(
+                this.inspiringPersonAdapter,
+                createFragmentListener()
+            )
+        supportFragmentManager.beginTransaction().add(R.id.frameLayout, this.inspiringPeopleFragment)
             .commit()
     }
 
@@ -45,7 +54,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun checkRemoveItem(index: Int) {
-                val alertDialog =
+                val alertDialog: AlertDialog =
                     AlertDialog.Builder(this@MainActivity).create()
                 alertDialog.setTitle("Delete")
                 alertDialog.setMessage("Are you sure you want to delete this item?")
@@ -64,9 +73,13 @@ class MainActivity : AppCompatActivity() {
 
             override fun editItem(index: Int) {
                 editInspiringPersonFragment =
-                    EditInspiringPersonFragment(index, createFragmentListener())
+                    EditInspiringPersonFragment(
+                        index,
+                        createFragmentListener()
+                    )
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.frameLayout, editInspiringPersonFragment).addToBackStack("FragmentTwo")
+                    .replace(R.id.frameLayout, editInspiringPersonFragment)
+                    .addToBackStack("FragmentTwo")
                     .commit()
             }
         }
@@ -83,9 +96,13 @@ class MainActivity : AppCompatActivity() {
 
             override fun addNewItem() {
                 editInspiringPersonFragment =
-                    EditInspiringPersonFragment(-1, createFragmentListener())
+                    EditInspiringPersonFragment(
+                        -1,
+                        createFragmentListener()
+                    )
                 supportFragmentManager.beginTransaction()
-                    .replace(R.id.frameLayout, editInspiringPersonFragment).addToBackStack("FragmentTwo")
+                    .replace(R.id.frameLayout, editInspiringPersonFragment)
+                    .addToBackStack("FragmentTwo")
                     .commit()
             }
         }
