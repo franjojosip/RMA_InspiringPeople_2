@@ -1,4 +1,4 @@
-package ht.ferit.fjjukic.rma_lv2_2.interfaces
+package ht.ferit.fjjukic.rma_lv2_2
 
 interface InspiringPeopleListener {
     fun onShowQuote(index: Int)

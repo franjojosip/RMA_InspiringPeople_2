@@ -1,16 +1,9 @@
-package ht.ferit.fjjukic.rma_lv2_2.activities
+package ht.ferit.fjjukic.rma_lv2_2
 
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import ht.ferit.fjjukic.rma_lv2_2.adapters.InspiringPersonAdapter
-import ht.ferit.fjjukic.rma_lv2_2.R
-import ht.ferit.fjjukic.rma_lv2_2.fragments.EditInspiringPersonFragment
-import ht.ferit.fjjukic.rma_lv2_2.fragments.InspiringPeopleFragment
-import ht.ferit.fjjukic.rma_lv2_2.interfaces.FragmentListener
-import ht.ferit.fjjukic.rma_lv2_2.interfaces.InspiringPeopleListener
-import ht.ferit.fjjukic.rma_lv2_2.repository.PeopleRepository
 
 
 class MainActivity : AppCompatActivity() {

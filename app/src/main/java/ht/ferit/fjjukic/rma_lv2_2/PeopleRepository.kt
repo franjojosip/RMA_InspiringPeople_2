@@ -1,6 +1,5 @@
-package ht.ferit.fjjukic.rma_lv2_2.repository
+package ht.ferit.fjjukic.rma_lv2_2
 
-import ht.ferit.fjjukic.rma_lv2_2.models.InspiringPerson
 import java.time.LocalDate
 
 object PeopleRepository {
@@ -8,7 +7,8 @@ object PeopleRepository {
     private var inspiringPeople: MutableList<InspiringPerson>
 
     init {
-        inspiringPeople = getInspiringPeople()
+        inspiringPeople =
+            getInspiringPeople()
     }
 
     private fun getInspiringPeople(): MutableList<InspiringPerson> {
@@ -72,7 +72,8 @@ object PeopleRepository {
         )
     }
 
-    fun getListOfInspiringPeople(): MutableList<InspiringPerson> = inspiringPeople
+    fun getListOfInspiringPeople(): MutableList<InspiringPerson> =
+        inspiringPeople
     fun count(): Int = inspiringPeople.count()
     fun removeInspiringPerson(id: Int) {
         val index: Int = inspiringPeople.indexOfFirst { it.id == id }

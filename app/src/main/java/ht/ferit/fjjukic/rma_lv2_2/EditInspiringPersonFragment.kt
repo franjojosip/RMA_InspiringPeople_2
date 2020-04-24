@@ -1,4 +1,4 @@
-package ht.ferit.fjjukic.rma_lv2_2.fragments
+package ht.ferit.fjjukic.rma_lv2_2
 
 import android.app.Activity
 import android.app.DatePickerDialog
@@ -14,11 +14,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat.checkSelfPermission
 import androidx.fragment.app.Fragment
-import ht.ferit.fjjukic.rma_lv2_2.interfaces.FragmentListener
-import ht.ferit.fjjukic.rma_lv2_2.models.InspiringPerson
-import ht.ferit.fjjukic.rma_lv2_2.R
-import ht.ferit.fjjukic.rma_lv2_2.repository.CodeRepository
-import ht.ferit.fjjukic.rma_lv2_2.repository.PeopleRepository
 import java.time.LocalDate
 import java.util.*
 

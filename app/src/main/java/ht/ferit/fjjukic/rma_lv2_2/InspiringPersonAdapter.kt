@@ -1,4 +1,4 @@
-package ht.ferit.fjjukic.rma_lv2_2.adapters
+package ht.ferit.fjjukic.rma_lv2_2
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,10 +7,6 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
-import ht.ferit.fjjukic.rma_lv2_2.R
-import ht.ferit.fjjukic.rma_lv2_2.interfaces.InspiringPeopleListener
-import ht.ferit.fjjukic.rma_lv2_2.models.InspiringPerson
-import ht.ferit.fjjukic.rma_lv2_2.repository.PeopleRepository
 import kotlinx.android.synthetic.main.inspiring_people_list_item.view.*
 
 class InspiringPersonAdapter(

@@ -1,4 +1,4 @@
-package ht.ferit.fjjukic.rma_lv2_2.fragments
+package ht.ferit.fjjukic.rma_lv2_2
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,6 @@ import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import ht.ferit.fjjukic.rma_lv2_2.interfaces.FragmentListener
-import ht.ferit.fjjukic.rma_lv2_2.adapters.InspiringPersonAdapter
-import ht.ferit.fjjukic.rma_lv2_2.R
 
 
 class InspiringPeopleFragment(
